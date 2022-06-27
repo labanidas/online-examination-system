@@ -1,0 +1,31 @@
+<%- include("user-interface-header") -%>
+
+<div class="main">
+  
+
+  <%    users.forEach((item)=>{ %>
+    <form action="/delete-student" method="post">
+
+      <div class="user">
+        
+     <p>Name: <%= item.name %></p>
+     <br>
+     <p>Registration no:<%= item.registrationNo %></p>
+
+    <% if(button == 'student'){ %>
+      <button type="submit" name="button" value="<%=item._id%>">Remove Student</button>
+      <input type="hidden" name="title" value="<%=title%>">
+      <input type="hidden" name="name" value="<%=name%>">
+      <input type="hidden" name="regno" value="<%=regno%>">
+  <%  } %>
+     
+    </div>
+    
+    </form>
+    
+
+<%    })  %>
+
+</div>
+
+<%- include("user-interface-footer") -%>

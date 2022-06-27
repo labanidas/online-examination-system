@@ -1,0 +1,41 @@
+<%- include("header") -%>
+
+<div class="form col-md-6">
+
+  <form action="/login" method="post">
+    <h2><%= title %></h2>
+    <br />
+    <div class="dropdown">
+      <button
+        class="btn btn-light dropdown-toggle select-btn"
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Select category
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#"><input type="hidden" name="input" value="admin"> Admin </input> </a></li>
+        <li><a class="dropdown-item" href="#"><input type="hidden" name="input" value="teacher"> Teacher</input></a></li>
+        <li><a class="dropdown-item" href="#"><input type="hidden" name="input" value="student"> Student</input></a></li>
+      </ul>
+    </div>
+  
+    <input type="text" placeholder=" Your Registration Number" name="regno" />
+    <input type="password" placeholder="Type your password" name="password" />
+    <button class="btn btn-sm btn-primary" type="submit">Login</button>
+    <button
+      type="submit"
+      class="btn btn-sm btn-primary"
+      name="button"
+      value="back"
+    >
+      Go Back
+    </button>
+
+  </form>
+  </div>
+
+  <%- include("footer") -%>
+  

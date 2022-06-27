@@ -1,0 +1,65 @@
+<%- include("user-interface-header") -%> <% if(title =='Admin'){ %>
+<form action="/new-question" method="post">
+  <div class="question-input">
+    <input type="text" name="newQuestion" placeholder="New Question" />
+    <input type="text" name="op1" placeholder="Option A" />
+    <input type="text" name="op2" placeholder="Option B" />
+    <input type="text" name="op3" placeholder="Option C" />
+    <input type="text" name="op4" placeholder="Option D" />
+    <input type="text" name="ans" placeholder="Answer" />
+
+    <input type="hidden" name="name" value="<%= name %>" />
+    <input type="hidden" name="regno" value="<%= regno %>" />
+
+    <button type="submit" id="add">Add</button>
+  </div>
+</form>
+<% } %> 
+<% if(title=='Admin' || title=='Teacher'){ %>
+<% questions.forEach((item)=>{ %>
+
+<form action="/delete-question" method="post">
+  <div class="questions">
+    <h3><%= item.que %></h3>
+    <br />
+    <p>Option A:<%= item.option1 %></p>
+    <p>Option B:<%= item.option2 %></p>
+    <p>Option C:<%= item.option3 %></p>
+    <p>Option D:<%= item.option4 %></p>
+    <p>Answer :<%= item.ans %></p>
+  </div>
+</form>
+
+<% }) %>
+ <% } else{ %>
+<form action="/submit-ans" method="post">
+  <% questions.forEach((item)=>{ %>
+
+  <div class="questions">
+    <h2><%= item.que %></h2>
+    <br />
+    <input type="radio" class="radio" name="<%= item.que %>" value="<%= item.option1 %>" />
+    <span><%= item.option1 %></span><br />
+    <input type="radio" class="radio" name="<%= item.que %>" value="<%= item.option2%>" />
+    <span>
+      <%= item.option2 %></span><br />
+    <input
+      type="radio"
+      class="radio"
+      name="<%= item.que %>"
+      value="<%= item.option3%>"
+    /><span><%= item.option3 %></span><br /><br />
+    <input type="radio" class="radio" name="<%= item.que %>" value="<%= item.option4%>" /><span>
+      <%= item.option4 %></span
+    >
+  </div>
+
+  <% }) %>
+  <br /><br /><br />
+  <input type="hidden" name="title" value="<%=title%>">
+  <input type="hidden" name="name" value="<%=name%>">
+  <input type="hidden" name="regno" value="<%=regno%>">
+  <button type="submit" id="submit">Submit</button>
+</form>
+<% } %> 
+<%- include("user-interface-footer") -%>
