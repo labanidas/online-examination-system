@@ -56,9 +56,7 @@ button{
 }
 
 .user{
-    display:flex;
-    justify-content: space-between;
-    margin:20px;
+    margin:2vh 0 2vh 0;
 }
 input[type="checkbox"]{
     margin-right: 15px;
@@ -76,7 +74,23 @@ input[type="radio"], .questions p{
     margin-left:5vw;
 }
 
-#submit, #add{
+.button{
     float:right;
     margin-left:5vw;
+}
+
+input{
+    padding:10px;
+    border: none;
+    border-radius: 5px;
+}
+#logout{
+    background-color: rgb(51, 79, 207);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+#logout:hover{
+    background-color: aqua;
+    color: rgb(34, 0, 112);
 }
