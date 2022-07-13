@@ -1,4 +1,9 @@
-<%- include("user-interface-header") -%> <% if(title =='Admin'){ %>
+<%- include("user-interface-header") -%> 
+
+<div class="que">
+
+
+<% if(title =='Admin'){ %>
 <form action="/new-question" method="post">
   <div class="question-input">
     <input type="text" name="newQuestion" placeholder="New Question" />
@@ -11,14 +16,15 @@
     <input type="hidden" name="name" value="<%= name %>" />
     <input type="hidden" name="regno" value="<%= regno %>" />
 
-    <button type="submit" id="add">Add</button>
+    <button type="submit" class="button">Add</button>
   </div>
 </form>
 <% } %> 
 <% if(title=='Admin' || title=='Teacher'){ %>
+  <ol>
 <% questions.forEach((item)=>{ %>
-
-<form action="/delete-question" method="post">
+<li>
+<form action="/delete-question" method ="post">
   <div class="questions">
     <h3><%= item.que %></h3>
     <br />
@@ -26,15 +32,23 @@
     <p>Option B:<%= item.option2 %></p>
     <p>Option C:<%= item.option3 %></p>
     <p>Option D:<%= item.option4 %></p>
-    <p>Answer :<%= item.ans %></p>
+    <strong><p>Answer :<%= item.ans %></p></strong>
+    <br>
+    <% if(title =='Admin'){ %>
+      <button type="submit" name="button" value="<%= item._id %>" class="button">Delete</button>
+    <input type="hidden" name="name" value="<%= name %>" />
+    <input type="hidden" name="regno" value="<%= regno %>" />
+    <% } %>
   </div>
 </form>
-
+</li>
 <% }) %>
+</ol>
  <% } else{ %>
-<form action="/submit-ans" method="post">
+<form action="/submit-ans" method="post" id="submit-ans">
+  <ol>
   <% questions.forEach((item)=>{ %>
-
+<li>
   <div class="questions">
     <h2><%= item.que %></h2>
     <br />
@@ -49,17 +63,22 @@
       name="<%= item.que %>"
       value="<%= item.option3%>"
     /><span><%= item.option3 %></span><br /><br />
-    <input type="radio" class="radio" name="<%= item.que %>" value="<%= item.option4%>" /><span>
+    <input type="radio" class="radio" name="<%= item.que %>" value="<%= item.option4 %>" /><span>
       <%= item.option4 %></span
     >
+  </li>
   </div>
 
   <% }) %>
+</ol>
   <br /><br /><br />
   <input type="hidden" name="title" value="<%=title%>">
   <input type="hidden" name="name" value="<%=name%>">
   <input type="hidden" name="regno" value="<%=regno%>">
-  <button type="submit" id="submit">Submit</button>
+  <button type="submit" class="button">Submit</button>
+
 </form>
 <% } %> 
+
+</div>
 <%- include("user-interface-footer") -%>

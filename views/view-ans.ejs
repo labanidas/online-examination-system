@@ -1,0 +1,18 @@
+<%- include("user-interface-header") -%> 
+
+<ol class="main user">
+<%  answers.forEach((item)=>{   %>
+    <li>
+        <h3><%=item.que%></h3>
+        <p><strong>Correct Answer: </strong><%=item.correctAnswer%></p>
+      <%   if(item.studentAnswer!=item.correctAnswer){ %>
+            <p><strong>Your Answer: </strong ><strong><span  style="color:rgb(192, 29, 29); font-size: medium; margin-left:0;"><%=item.studentAnswer%></strong></span></p>
+       <%  }else{ %>
+            <p><strong>Your Answer: </strong><%=item.studentAnswer%></p>
+      <%   } %>
+        <br>
+    </li>
+<%  })  %>
+</ol>
+
+<%- include("user-interface-footer") -%>

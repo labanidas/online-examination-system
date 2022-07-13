@@ -1,0 +1,15 @@
+<%- include("user-interface-header") -%> 
+
+<form action="/start-exam" method="post" id="score-card">
+    <div id="result">
+        <h1>BEST OF LUCK!</h1>
+        <h3>TIME ALLOTTED: 30 MIN</h3>
+        <br><br>
+        <button  type="submit">START EXAM</button>
+        <input type="hidden" name="name" value="<%=name%>">
+        <input type="hidden" name="regno" value="<%=regno%>">
+    </div>
+    </form>
+    
+
+<%- include("user-interface-footer") -%>

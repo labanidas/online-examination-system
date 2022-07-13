@@ -1,7 +1,14 @@
 <%- include("user-interface-header") -%> 
 
-<div class="result">
+
+<div id="score-card">
+<div id="result">
     <h1><%= marks %></h1>
+    <h3>Out of <%= fullMarks %></h3>
+    <br><br>
+    <input type="hidden" name="name" value="<%=name%>">
+    <input type="hidden" name="regno" value="<%=regno%>">
+</div>
 </div>
 
 

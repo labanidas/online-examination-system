@@ -34,11 +34,23 @@
             <span><button type="submit" name="button" value="questions">Questions</button> </span>
            <%   } %>
             
-            
+           <!-- result interface -->
+         <%  if(title=="Result"){ %>
+            <span><button type="submit" name="button" value="score-card">View Score</button> </span>
+            <span><button type="submit" name="button" value="view-ans">View Answers</button> </span>
+        <%  } %>
+
+           <% if(title != 'Student'){  %>
             <span><button type="submit" id="logout" name="button" value="logout">Logout</button> </span>
+            <%   } %>
+
+           
+            <span id="demo"></span>
             <input type="hidden" name="title" value="<%= title %>">
             <input type="hidden" name="name" value="<%= name %>">
             <input type="hidden" name="regno" value="<%= regno %>">
+
+
         </form>
         </div>
     </div>

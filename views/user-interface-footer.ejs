@@ -1,4 +1,27 @@
 </div>
+<script>
+  var x = document.querySelector('title').innerHTML;
+  if(x=="Student")
+  {
+var minutes = 1;
+var seconds = 0;
+var x = setInterval(function() {
+  if(seconds == 0){
+    seconds=60;
+    minutes --;
+  }
+  document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+  seconds = seconds-1;
+
+  if (minutes < 0) {
+    clearInterval(x);
+    // document.getElementById("demo").innerHTML = "EXPIRED";
+    alert("Auto submitting form because you did not answered in the given time");
+    document.getElementById('submit-ans').submit();
+  }
+}, 1000);
+  }
+  </script>
   </body>
   </html>
   
